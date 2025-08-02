@@ -18,7 +18,6 @@ import memberRoutes from "./routes/member.route";
 import projectRoutes from "./routes/project.route";
 import taskRoutes from "./routes/task.route";
 
-
 const BASE_PATH = config.BASE_PATH;
 const app = express();
 
@@ -36,7 +35,7 @@ app.use(
       maxAge: 24 * 60 * 60 * 1000,
       secure: config.NODE_ENV === "production",
       httpOnly: true,
-      sameSite: "none",
+      sameSite: config.NODE_ENV === "production" ? "none" : "lax",
     },
   })
 );
@@ -67,7 +66,6 @@ app.use(`${BASE_PATH}/workspace`, isAuthenticated, workspaceRoutes);
 app.use(`${BASE_PATH}/member`, isAuthenticated, memberRoutes);
 app.use(`${BASE_PATH}/project`, isAuthenticated, projectRoutes);
 app.use(`${BASE_PATH}/task`, isAuthenticated, taskRoutes);
-
 
 app.use(errorHandler);
 

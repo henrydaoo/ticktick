@@ -21,9 +21,9 @@ import { useAuthContext } from "@/context/auth-provider";
 import useWorkspaceId from "@/hooks/use-workspace-id";
 import useGetWorkspaceMembers from "@/hooks/api/use-get-workspace-members";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { changeWorkspaceMemberRoleMutationFn } from "@/lib/api";
 import { toast } from "@/hooks/use-toast";
 import { Permissions } from "@/constant";
+import { changeWorkspaceMemberRoleMutationFn } from "@/lib/api/workspace.api";
 const AllMembers = () => {
   const { user, hasPermission } = useAuthContext();
 

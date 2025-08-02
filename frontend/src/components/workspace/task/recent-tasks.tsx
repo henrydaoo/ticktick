@@ -2,7 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { TaskPriorityEnum, TaskStatusEnum } from "@/constant";
 import useWorkspaceId from "@/hooks/use-workspace-id";
-import { getAllTasksQueryFn } from "@/lib/api";
+import { getAllTasksQueryFn } from "@/lib/api/task.api";
 import {
   getAvatarColor,
   getAvatarFallbackText,

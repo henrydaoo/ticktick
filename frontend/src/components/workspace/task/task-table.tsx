@@ -9,13 +9,13 @@ import { DataTableFacetedFilter } from "./table/table-faceted-filter";
 import { priorities, statuses } from "./table/data";
 import { useQuery } from "@tanstack/react-query";
 import useWorkspaceId from "@/hooks/use-workspace-id";
-import { getAllTasksQueryFn } from "@/lib/api";
 import { TaskType } from "@/types/api.type";
 import useGetProjectsInWorkspaceQuery from "@/hooks/api/use-get-projects";
 import useGetWorkspaceMembers from "@/hooks/api/use-get-workspace-members";
 import { getAvatarColor, getAvatarFallbackText } from "@/lib/helper";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import useTaskTableFilter from "@/hooks/use-task-table-filter";
+import { getAllTasksQueryFn } from "@/lib/api/task.api";
 
 type Filters = ReturnType<typeof useTaskTableFilter>[0];
 type SetFilters = ReturnType<typeof useTaskTableFilter>[1];

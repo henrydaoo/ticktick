@@ -15,9 +15,9 @@ import { ConfirmDialog } from "@/components/resuable/confirm-dialog";
 import { TaskType } from "@/types/api.type";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import useWorkspaceId from "@/hooks/use-workspace-id";
-import { deleteTaskMutationFn } from "@/lib/api";
 import { toast } from "@/hooks/use-toast";
 import EditTaskDialog from "../edit-task-dialog";
+import { deleteTaskMutationFn } from "@/lib/api/task.api";
 
 interface DataTableRowActionsProps {
   row: Row<TaskType>;
@@ -25,7 +25,7 @@ interface DataTableRowActionsProps {
 
 export function DataTableRowActions({ row }: DataTableRowActionsProps) {
   const [openDeleteDialog, setOpenDialog] = useState(false);
-  const [openEditDialog, setOpenEditDialog] = useState(false); // State for edit dialog
+  const [openEditDialog, setOpenEditDialog] = useState(false);
 
   const queryClient = useQueryClient();
   const workspaceId = useWorkspaceId();

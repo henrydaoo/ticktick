@@ -30,10 +30,10 @@ import { Calendar } from "@/components/ui/calendar";
 import useWorkspaceId from "@/hooks/use-workspace-id";
 import { TaskPriorityEnum, TaskStatusEnum } from "@/constant";
 import useGetWorkspaceMembers from "@/hooks/api/use-get-workspace-members";
-import { editTaskMutationFn } from "@/lib/api";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "@/hooks/use-toast";
 import { TaskType } from "@/types/api.type";
+import { editTaskMutationFn } from "@/lib/api/task.api";
 
 export default function EditTaskForm({
   task,

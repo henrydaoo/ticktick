@@ -14,10 +14,10 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "../ui/textarea";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createWorkspaceMutationFn } from "@/lib/api";
 import { useNavigate } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 import { Loader } from "lucide-react";
+import { createWorkspaceMutationFn } from "@/lib/api/workspace.api";
 
 export default function CreateWorkspaceForm({
   onClose,

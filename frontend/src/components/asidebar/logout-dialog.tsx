@@ -9,10 +9,10 @@ import {
 import { Button } from "@/components/ui/button";
 import { useCallback } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { logoutMutationFn } from "@/lib/api";
 import { toast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import { Loader } from "lucide-react";
+import { logoutMutationFn } from "@/lib/api/auth.api";
 
 const LogoutDialog = (props: {
   isOpen: boolean;
@@ -41,7 +41,6 @@ const LogoutDialog = (props: {
     },
   });
 
-  // Handle logout action
   const handleLogout = useCallback(() => {
     if (isPending) return;
     mutate();

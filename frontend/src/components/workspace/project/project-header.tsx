@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 import CreateTaskDialog from "../task/create-task-dialog";
 import useWorkspaceId from "@/hooks/use-workspace-id";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { getProjectByIdQueryFn } from "@/lib/api";
 import PermissionsGuard from "@/components/resuable/permission-guard";
 import { Permissions } from "@/constant";
 import EditProjectDialog from "./edit-project-dialog";
+import { getProjectByIdQueryFn } from "@/lib/api/project.api";
 
 const ProjectHeader = () => {
   const param = useParams();

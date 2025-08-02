@@ -36,7 +36,7 @@ app.use(
       maxAge: 24 * 60 * 60 * 1000,
       secure: config.NODE_ENV === "production",
       httpOnly: true,
-      sameSite: "lax",
+      sameSite: "none",
     },
   })
 );
@@ -71,7 +71,9 @@ app.use(`${BASE_PATH}/task`, isAuthenticated, taskRoutes);
 
 app.use(errorHandler);
 
-app.listen(config.PORT, async () => {
-  console.log(`Server listening on port ${config.PORT} in ${config.NODE_ENV}`);
+const PORT = process.env.PORT || config.PORT;
+
+app.listen(PORT, async () => {
+  console.log(`Server listening on port ${PORT} in ${config.NODE_ENV}`);
   await connectDatabase();
 });

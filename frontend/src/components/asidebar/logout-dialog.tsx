@@ -41,7 +41,6 @@ const LogoutDialog = (props: {
     },
   });
 
-  // Handle logout action
   const handleLogout = useCallback(() => {
     if (isPending) return;
     mutate();

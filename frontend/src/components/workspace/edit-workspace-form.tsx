@@ -15,11 +15,11 @@ import { Textarea } from "../ui/textarea";
 import { useAuthContext } from "@/context/auth-provider";
 import { useEffect } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { editWorkspaceMutationFn } from "@/lib/api";
 import useWorkspaceId from "@/hooks/use-workspace-id";
 import { toast } from "@/hooks/use-toast";
 import { Loader } from "lucide-react";
 import { Permissions } from "@/constant";
+import { editWorkspaceMutationFn } from "@/lib/api/workspace.api";
 
 export default function EditWorkspaceForm() {
   const { workspace, hasPermission } = useAuthContext();

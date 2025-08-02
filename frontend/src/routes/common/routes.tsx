@@ -3,7 +3,7 @@ import { AUTH_ROUTES, PROTECTED_ROUTES } from "./routePaths";
 import GoogleOAuthFailure from "@/page/auth/GoogleOAuthFailure";
 import SignUp from "@/page/auth/Sign-up";
 import WorkspaceDashboard from "@/page/workspace/Dashboard";
-
+import Tasks from "@/page/workspace/Tasks";
 
 interface RouteConfig {
   path: string;
@@ -18,7 +18,7 @@ export const authenticationRoutePaths: RouteConfig[] = [
 
 export const protectedRoutePaths: RouteConfig[] = [
     { path: PROTECTED_ROUTES.WORKSPACE, element: <WorkspaceDashboard /> },
-
+  { path: PROTECTED_ROUTES.TASKS, element: <Tasks /> },
 ];
 
 export const baseRoutePaths: RouteConfig[] = [];

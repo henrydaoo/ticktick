@@ -2,6 +2,7 @@ import "dotenv/config";
 import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
 import session from "express-session";
+import MongoStore from "connect-mongo";
 import { asyncHandler } from "./middlewares/asyncHandler.middleware";
 import { BadRequestException } from "./utils/appError";
 import { ErrorCodeEnum } from "./enums/error-code.enum";
@@ -21,6 +22,8 @@ import taskRoutes from "./routes/task.route";
 const BASE_PATH = config.BASE_PATH;
 const app = express();
 
+app.set("trust proxy", 1);
+
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
@@ -34,6 +37,10 @@ app.use(
     secret: config.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: config.MONGO_URI,
+      touchAfter: 24 * 3600,
+    }),
     cookie: {
       maxAge: 24 * 60 * 60 * 1000,
       secure: config.NODE_ENV === "production",

@@ -6,6 +6,7 @@ import WorkspaceDashboard from "@/page/workspace/Dashboard";
 import Tasks from "@/page/workspace/Tasks";
 import Members from "@/page/workspace/Members";
 import Settings from "@/page/workspace/Settings";
+import ProjectDetails from "@/page/workspace/ProjectDetails";
 
 interface RouteConfig {
   path: string;
@@ -19,10 +20,11 @@ export const authenticationRoutePaths: RouteConfig[] = [
 ];
 
 export const protectedRoutePaths: RouteConfig[] = [
-    { path: PROTECTED_ROUTES.WORKSPACE, element: <WorkspaceDashboard /> },
+  { path: PROTECTED_ROUTES.WORKSPACE, element: <WorkspaceDashboard /> },
   { path: PROTECTED_ROUTES.TASKS, element: <Tasks /> },
-    { path: PROTECTED_ROUTES.MEMBERS, element: <Members /> },
-      { path: PROTECTED_ROUTES.SETTINGS, element: <Settings /> },
+  { path: PROTECTED_ROUTES.MEMBERS, element: <Members /> },
+  { path: PROTECTED_ROUTES.SETTINGS, element: <Settings /> },
+  { path: PROTECTED_ROUTES.PROJECT_DETAILS, element: <ProjectDetails /> },
 ];
 
 export const baseRoutePaths: RouteConfig[] = [];

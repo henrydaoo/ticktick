@@ -6,7 +6,7 @@ import { useAuthContext } from "@/context/auth-provider";
 import useConfirmDialog from "@/hooks/use-confirm-dialog";
 import { toast } from "@/hooks/use-toast";
 import useWorkspaceId from "@/hooks/use-workspace-id";
-import { deleteWorkspaceMutationFn } from "@/lib/api";
+import { deleteWorkspaceMutationFn } from "@/lib/api/workspace.api";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 

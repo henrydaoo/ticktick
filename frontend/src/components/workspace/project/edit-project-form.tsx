@@ -21,10 +21,10 @@ import { Textarea } from "../../ui/textarea";
 import { ProjectType } from "@/types/api.type";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import useWorkspaceId from "@/hooks/use-workspace-id";
-import { editProjectMutationFn } from "@/lib/api";
 import { toast } from "@/hooks/use-toast";
 import { Loader } from "lucide-react";
 import EmojiPickerComponent from "@/components/emoji-picker";
+import { editProjectMutationFn } from "@/lib/api/project.api";
 
 export default function EditProjectForm(props: {
   project?: ProjectType;

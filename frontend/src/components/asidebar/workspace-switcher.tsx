@@ -20,7 +20,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import useWorkspaceId from "@/hooks/use-workspace-id";
 import { useQuery } from "@tanstack/react-query";
-import { getAllWorkspacesUserIsMemberQueryFn } from "@/lib/api";
+import { getAllWorkspacesUserIsMemberQueryFn } from "@/lib/api/workspace.api";
 import useCreateWorkspaceDialog from "@/hooks/use-create-workspace-dialog";
 
 type WorkspaceType = {

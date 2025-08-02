@@ -5,6 +5,7 @@ import SignUp from "@/page/auth/Sign-up";
 import WorkspaceDashboard from "@/page/workspace/Dashboard";
 import Tasks from "@/page/workspace/Tasks";
 import Members from "@/page/workspace/Members";
+import Settings from "@/page/workspace/Settings";
 
 interface RouteConfig {
   path: string;
@@ -21,6 +22,7 @@ export const protectedRoutePaths: RouteConfig[] = [
     { path: PROTECTED_ROUTES.WORKSPACE, element: <WorkspaceDashboard /> },
   { path: PROTECTED_ROUTES.TASKS, element: <Tasks /> },
     { path: PROTECTED_ROUTES.MEMBERS, element: <Members /> },
+      { path: PROTECTED_ROUTES.SETTINGS, element: <Settings /> },
 ];
 
 export const baseRoutePaths: RouteConfig[] = [];

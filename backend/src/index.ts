@@ -25,6 +25,9 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
+console.log("NODE_ENV:", config.NODE_ENV);
+console.log("FRONTEND_ORIGIN:", config.FRONTEND_ORIGIN);
+
 app.use(
   session({
     name: "session",

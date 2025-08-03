@@ -5,28 +5,31 @@ import WorkspaceHeader from "@/components/workspace/common/workspace-header";
 
 export default function Members() {
   return (
-    <div className="w-full h-auto pt-2">
-      <WorkspaceHeader />
-      <Separator className="my-4 " />
-      <main>
-        <div className="w-full max-w-3xl mx-auto pt-3">
-          <div>
-            <h2 className="text-lg leading-[30px] font-semibold mb-1">
-              Workspace members
-            </h2>
-            <p className="text-sm text-muted-foreground">
-              Manage workspace members and collaborate on projects together.
-              Invite team members to help with specific projects and assign tasks.
-            </p>
+    <div className="px-3 lg:px-20 py-3">
+      <div className="w-full h-auto pt-2">
+        <WorkspaceHeader />
+        <Separator className="my-4 " />
+        <main>
+          <div className="w-full max-w-3xl mx-auto pt-3">
+            <div>
+              <h2 className="text-lg leading-[30px] font-semibold mb-1">
+                Workspace members
+              </h2>
+              <p className="text-sm text-muted-foreground">
+                Manage workspace members and collaborate on projects together.
+                Invite team members to help with specific projects and assign
+                tasks.
+              </p>
+            </div>
+            <Separator className="my-4" />
+
+            <InviteMember />
+            <Separator className="my-4 !h-[0.5px]" />
+
+            <AllMembers />
           </div>
-          <Separator className="my-4" />
-
-          <InviteMember />
-          <Separator className="my-4 !h-[0.5px]" />
-
-          <AllMembers />
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
   );
 }

@@ -38,40 +38,26 @@ export const useChatClient = () => {
           userToken, 
           user.profilePicture || undefined
         );
-        console.log("Connected to Stream Chat successfully");
+        console.log("Connected to Chat successfully");
 
         setClient(chatClient);
 
         const isOwner = workspace.owner === user._id;
         if (isOwner) {
-          try {
-            await createWorkspaceChannel(
-              chatClient,
-              workspaceId,
-              user._id,
-              userToken,
-              user.name,
-              user.profilePicture || undefined,
-              workspace.name
-            );
-            console.log("Workspace channel created/ensured");
-          } catch (error) {
-            console.log("Workspace channel operation failed:", error);
-          }
+          await createWorkspaceChannel(
+            chatClient,
+            workspaceId,
+            user._id,
+            workspace.name
+          );
+          console.log("Workspace channel created/ensured");
         }
 
-        try {
-          await createDirectMessageChannel(
-            chatClient,
-            user._id,
-            userToken,
-            user.name,
-            user.profilePicture || undefined
-          );
-          console.log("Self DM channel created/ensured");
-        } catch (error) {
-          console.log("Self DM channel operation failed:", error);
-        }
+        await createDirectMessageChannel(
+          chatClient,
+          user._id
+        );
+        console.log("Self DM channel created/ensured");
       } catch (err) {
         console.error("Failed to initialize chat:", err);
         setError("Failed to connect to chat. Please try again.");

@@ -36,11 +36,11 @@ const InviteMember = () => {
   return (
     <div className="flex flex-col pt-0.5 px-0 ">
       <h5 className="text-lg  leading-[30px] font-semibold mb-1">
-        Invite members to join you
+        Invite members to join workspace
       </h5>
       <p className="text-sm text-muted-foreground leading-tight">
-        Anyone with an invite link can join this free Workspace. You can also
-        disable and create a new invite link for this Workspace at any time.
+        Invite team members to collaborate on workspace projects. Anyone with an invite link can join
+        this workspace and contribute to your team's projects.
       </p>
 
       <PermissionsGuard showMessage requiredPermission={Permissions.ADD_MEMBER}>

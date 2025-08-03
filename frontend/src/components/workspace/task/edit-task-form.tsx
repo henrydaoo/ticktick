@@ -76,7 +76,7 @@ export default function EditTaskForm({
     priority: z.enum(
       Object.values(TaskPriorityEnum) as [keyof typeof TaskPriorityEnum]
     ),
-    assignedTo: z.string().trim().min(1, { message: "AssignedTo is required" }),
+    assignedTo: z.string().trim().min(1, { message: "Please assign task to a team member" }),
     dueDate: z.date({ required_error: "A due date is required." }),
   });
 

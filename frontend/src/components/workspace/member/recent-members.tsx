@@ -21,6 +21,16 @@ const RecentMembers = () => {
         />
       ) : null}
 
+      {members?.length === 0 && (
+        <div
+          className="font-semibold
+         text-sm text-muted-foreground
+          text-center py-5"
+        >
+          No team members yet
+        </div>
+      )}
+
       <ul role="list" className="space-y-3">
         {members.map((member, index) => {
           const name = member?.userId?.name || "";

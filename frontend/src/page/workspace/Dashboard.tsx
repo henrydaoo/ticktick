@@ -17,7 +17,7 @@ const WorkspaceDashboard = () => {
             Workspace Overview
           </h2>
           <p className="text-muted-foreground">
-            Here&apos;s an overview for this workspace!
+            Here&apos;s an overview of your workspace projects and team activity!
           </p>
         </div>
         <Button onClick={onOpen}>
@@ -36,7 +36,7 @@ const WorkspaceDashboard = () => {
               Recent Tasks
             </TabsTrigger>
             <TabsTrigger className="py-2" value="members">
-              Recent Members
+              Team Members
             </TabsTrigger>
           </TabsList>
           <TabsContent value="projects">

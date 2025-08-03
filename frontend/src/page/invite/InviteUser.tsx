@@ -66,11 +66,10 @@ const InviteUser = () => {
           <Card>
             <CardHeader className="text-center">
               <CardTitle className="text-xl">
-                Hey there! You're invited to join a TeamSync Workspace!
+                Welcome to TickTick - Project Management Platform!
               </CardTitle>
               <CardDescription>
-                Looks like you need to be logged into your TeamSync account to
-                join this Workspace.
+                Please login to access your project workspace.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -89,7 +88,7 @@ const InviteUser = () => {
                           {isLoading && (
                             <Loader className="!w-6 !h-6 animate-spin" />
                           )}
-                          Join the Workspace
+                          Join Workspace
                         </Button>
                       </form>
                     </div>

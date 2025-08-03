@@ -77,11 +77,11 @@ export default function CreateWorkspaceForm({
             className="text-2xl tracking-[-0.16px] dark:text-[#fcfdffef] font-semibold mb-1.5
            text-center sm:text-left"
           >
-            Let's build a Workspace
+            Create Project Workspace
           </h1>
           <p className="text-muted-foreground text-lg leading-tight">
-            Boost your productivity by making it easier for everyone to access
-            projects in one location.
+            Set up a new workspace to organize projects, manage tasks, and 
+            collaborate with your team members effectively.
           </p>
         </div>
         <Form {...form}>
@@ -97,13 +97,13 @@ export default function CreateWorkspaceForm({
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="Taco's Co."
+                        placeholder="Team Project Hub"
                         className="!h-[48px]"
                         {...field}
                       />
                     </FormControl>
                     <FormDescription>
-                      This is the name of your company, team or organization.
+                      Name your workspace for better project organization.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -117,7 +117,7 @@ export default function CreateWorkspaceForm({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="dark:text-[#f1f7feb5] text-sm">
-                      Workspace description
+                      Description
                       <span className="text-xs font-extralight ml-2">
                         Optional
                       </span>
@@ -125,13 +125,12 @@ export default function CreateWorkspaceForm({
                     <FormControl>
                       <Textarea
                         rows={6}
-                        placeholder="Our team organizes marketing projects and tasks here."
+                        placeholder="We manage our team projects and collaborate on various initiatives here."
                         {...field}
                       />
                     </FormControl>
                     <FormDescription>
-                      Get your members on board with a few words about your
-                      Workspace.
+                      Describe how you plan to use this workspace.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -152,7 +151,7 @@ export default function CreateWorkspaceForm({
       </div>
       <div
         className="relative flex-1 shrink-0 hidden bg-muted md:block
-      bg-[url('/images/workspace.jpg')] bg-cover bg-center h-full
+      bg-[url('/images/background.png')] bg-cover bg-center h-full
       "
       />
     </main>

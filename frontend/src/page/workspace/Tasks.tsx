@@ -8,7 +8,7 @@ export default function Tasks() {
         <div>
           <h2 className="text-2xl font-bold tracking-tight">All Tasks</h2>
           <p className="text-muted-foreground">
-            Here&apos;s the list of tasks for this workspace!
+            Here&apos;s the complete list of tasks in this workspace!
           </p>
         </div>
         <CreateTaskDialog />

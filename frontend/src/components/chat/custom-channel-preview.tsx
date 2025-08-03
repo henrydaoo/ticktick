@@ -1,7 +1,7 @@
-import React from 'react';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { Hash, User, Users } from 'lucide-react';
-import { ChannelPreviewUIComponentProps } from 'stream-chat-react';
+import React from "react";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Hash, User, Users } from "lucide-react";
+import { ChannelPreviewUIComponentProps } from "stream-chat-react";
 
 const CustomChannelPreview: React.FC<ChannelPreviewUIComponentProps> = ({
   channel,
@@ -18,8 +18,8 @@ const CustomChannelPreview: React.FC<ChannelPreviewUIComponentProps> = ({
     }
   };
 
-  const isWorkspaceChannel = channel.id?.startsWith('workspace-');
-  const isSelfDM = channel.id?.startsWith('dm-self-');
+  const isWorkspaceChannel = channel.id?.startsWith("workspace-");
+  const isSelfDM = channel.id?.startsWith("dm-self-");
   const channelName = displayTitle || channel.id;
 
   const getChannelIcon = () => {
@@ -34,10 +34,10 @@ const CustomChannelPreview: React.FC<ChannelPreviewUIComponentProps> = ({
 
   const getChannelDisplayName = () => {
     if (isSelfDM) {
-      return 'Personal Notes';
+      return "Personal Notes";
     }
     if (isWorkspaceChannel) {
-      return `# ${channelName?.replace('workspace-', '')} General`;
+      return `# ${channelName}`;
     }
     return channelName;
   };
@@ -47,7 +47,7 @@ const CustomChannelPreview: React.FC<ChannelPreviewUIComponentProps> = ({
       onClick={handleSelect}
       className={`
         flex items-center gap-3 p-3 hover:bg-accent/50 cursor-pointer border-l-2 transition-colors
-        ${active ? 'bg-accent border-l-primary' : 'border-l-transparent'}
+        ${active ? "bg-accent border-l-primary" : "border-l-transparent"}
       `}
     >
       <div className="flex-shrink-0">
@@ -68,16 +68,16 @@ const CustomChannelPreview: React.FC<ChannelPreviewUIComponentProps> = ({
           <h3 className="font-medium text-sm truncate">
             {getChannelDisplayName()}
           </h3>
-          {channel.state?.unreadCount && channel.state.unreadCount > 0 && (
+          {channel.state?.unreadCount && channel.state.unreadCount > 0 ? (
             <span className="bg-primary text-primary-foreground text-xs px-1.5 py-0.5 rounded-full">
               {channel.state.unreadCount}
             </span>
-          )}
+          ) : null}
         </div>
 
         {lastMessage && (
           <p className="text-xs text-muted-foreground truncate">
-            {lastMessage.text || 'Message'}
+            {lastMessage.text || "Message"}
           </p>
         )}
       </div>

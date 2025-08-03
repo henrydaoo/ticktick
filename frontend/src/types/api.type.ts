@@ -19,12 +19,46 @@ export type registerType = {
   password: string;
 };
 
+export type RegisterResponseType = {
+  message: string;
+  userId: string;
+  workspaceId: string;
+};
+
+export type VerifyEmailResponseType = {
+  message: string;
+};
+
+export type ResendVerificationResponseType = {
+  message: string;
+};
+
+export type ForgotPasswordResponseType = {
+  message: string;
+};
+
+export type ResetPasswordResponseType = {
+  message: string;
+};
+
+export type ForgotPasswordType = {
+  email: string;
+};
+
+export type ResetPasswordType = {
+  token: string;
+  password: string;
+};
+
+export type ResendVerificationType = {
+  email: string;
+};
+
 export type UserType = {
   _id: string;
   name: string;
   email: string;
   profilePicture: string | null;
-  isActive: true;
   lastLogin: null;
   createdAt: Date;
   updatedAt: Date;

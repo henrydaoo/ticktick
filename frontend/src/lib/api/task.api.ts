@@ -12,7 +12,7 @@ export const createTaskMutationFn = async ({
   data,
 }: CreateTaskPayloadType) => {
   const response = await API.post(
-    `/task/project/${projectId}/workspace/${workspaceId}/create`,
+    `/tasks/project/${projectId}/workspace/${workspaceId}/create`,
     data
   );
   return response.data;
@@ -25,7 +25,7 @@ export const editTaskMutationFn = async ({
   data,
 }: EditTaskPayloadType): Promise<{message: string;}> => {
   const response = await API.put(
-    `/task/${taskId}/project/${projectId}/workspace/${workspaceId}/update/`,
+    `/tasks/${taskId}/project/${projectId}/workspace/${workspaceId}/update/`,
     data
   );
   return response.data;
@@ -42,7 +42,7 @@ export const getAllTasksQueryFn = async ({
   pageNumber,
   pageSize,
 }: AllTaskPayloadType): Promise<AllTaskResponseType> => {
-  const baseUrl = `/task/workspace/${workspaceId}/all`;
+  const baseUrl = `/tasks/workspace/${workspaceId}/all`;
 
   const queryParams = new URLSearchParams();
   if (keyword) queryParams.append("keyword", keyword);
@@ -69,7 +69,7 @@ export const deleteTaskMutationFn = async ({
   message: string;
 }> => {
   const response = await API.delete(
-    `task/${taskId}/workspace/${workspaceId}/delete`
+    `tasks/${taskId}/workspace/${workspaceId}/delete`
   );
   return response.data;
 };

@@ -13,7 +13,7 @@ import {
 export const createWorkspaceMutationFn = async (
   data: CreateWorkspaceType
 ): Promise<CreateWorkspaceResponseType> => {
-  const response = await API.post(`/workspace/create/new`, data);
+  const response = await API.post(`/workspaces/create/new`, data);
   return response.data;
 };
 
@@ -21,34 +21,34 @@ export const editWorkspaceMutationFn = async ({
   workspaceId,
   data,
 }: EditWorkspaceType) => {
-  const response = await API.put(`/workspace/update/${workspaceId}`, data);
+  const response = await API.put(`/workspaces/update/${workspaceId}`, data);
   return response.data;
 };
 
 export const getAllWorkspacesUserIsMemberQueryFn =
   async (): Promise<AllWorkspaceResponseType> => {
-    const response = await API.get(`/workspace/all`);
+    const response = await API.get(`/workspaces/all`);
     return response.data;
   };
 
 export const getWorkspaceByIdQueryFn = async (
   workspaceId: string
 ): Promise<WorkspaceByIdResponseType> => {
-  const response = await API.get(`/workspace/${workspaceId}`);
+  const response = await API.get(`/workspaces/${workspaceId}`);
   return response.data;
 };
 
 export const getMembersInWorkspaceQueryFn = async (
   workspaceId: string
 ): Promise<AllMembersInWorkspaceResponseType> => {
-  const response = await API.get(`/workspace/members/${workspaceId}`);
+  const response = await API.get(`/workspaces/members/${workspaceId}`);
   return response.data;
 };
 
 export const getWorkspaceAnalyticsQueryFn = async (
   workspaceId: string
 ): Promise<AnalyticsResponseType> => {
-  const response = await API.get(`/workspace/analytics/${workspaceId}`);
+  const response = await API.get(`/workspaces/analytics/${workspaceId}`);
   return response.data;
 };
 
@@ -57,7 +57,7 @@ export const changeWorkspaceMemberRoleMutationFn = async ({
   data,
 }: ChangeWorkspaceMemberRoleType) => {
   const response = await API.put(
-    `/workspace/change/member/role/${workspaceId}`,
+    `/workspaces/change/member/role/${workspaceId}`,
     data
   );
   return response.data;
@@ -69,6 +69,6 @@ export const deleteWorkspaceMutationFn = async (
   message: string;
   currentWorkspace: string;
 }> => {
-  const response = await API.delete(`/workspace/delete/${workspaceId}`);
+  const response = await API.delete(`/workspaces/delete/${workspaceId}`);
   return response.data;
 };

@@ -12,7 +12,7 @@ const AppLayout = () => {
       <SidebarProvider>
         <Asidebar />
         <SidebarInset className="overflow-x-hidden">
-          <div className="w-full flex flex-col h-full">
+          <div className="w-full flex flex-col h-screen">
             <Header />
             <Outlet />
             <CreateWorkspaceDialog />

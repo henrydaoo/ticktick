@@ -134,174 +134,171 @@ const Chats = () => {
   }
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="flex-1 relative">
-        <Chat client={client}>
-          <div className="flex h-full">
-            <div
-              className={`${
-                isMobile && selectedChannel ? "hidden" : "block"
-              } w-full md:w-80 border-r bg-background flex flex-col relative`}
-            >
-              <div className="p-2 border-b border-r space-y-2">
-                <div className="flex items-center justify-between">
-                  <h2 className="font-medium text-sm text-muted-foreground uppercase tracking-wide">
-                    Chats
-                  </h2>
-                  {isOwner && (
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => setShowUserList(!showUserList)}
-                      className="flex items-center gap-2"
-                    >
-                      <UserPlus className="h-4 w-4" />
-                      {isMobile ? "" : "Invite"}
-                    </Button>
-                  )}
-                </div>
-
-                {isOwner && showUserList && (
-                  <div className="space-y-2">
-                    <div className="relative">
-                      <Input
-                        placeholder="Search users to invite..."
-                        value={searchQuery}
-                        onChange={handleSearchChange}
-                        className="w-full"
-                        disabled={isInviting}
-                      />
-
-                      {filteredMembers.length > 0 && (
-                        <div className="absolute top-full left-0 right-0 bg-card border border-border rounded-md shadow-lg z-10 mt-1 max-h-40 overflow-y-auto">
-                          {filteredMembers.map((member: any) => (
-                            <div
-                              key={member.userId._id}
-                              onClick={() => handleSelectUser(member)}
-                              className="p-2 hover:bg-accent cursor-pointer text-sm"
-                            >
-                              {member.userId.name}
-                            </div>
-                          ))}
-                        </div>
-                      )}
-
-                      {searchQuery.length > 0 &&
-                        filteredMembers.length === 0 && (
-                          <div className="absolute top-full left-0 right-0 bg-card border border-border rounded-md shadow-lg z-10 mt-1 p-2">
-                            <div className="text-sm text-muted-foreground">
-                              No users found
-                            </div>
-                          </div>
-                        )}
-                    </div>
-
-                    <div className="flex gap-2">
-                      <Button
-                        onClick={handleInviteMember}
-                        disabled={isInviting || !selectedUser}
-                        size="sm"
-                        className="flex-1"
-                      >
-                        {isInviting ? "Inviting..." : "Invite Member"}
-                      </Button>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => {
-                          setShowUserList(false);
-                          setSearchQuery("");
-                          setSelectedUser(null);
-                        }}
-                      >
-                        Cancel
-                      </Button>
-                    </div>
-
-                    {inviteMessage && (
-                      <p
-                        className={`text-xs ${
-                          inviteMessage.includes("Failed")
-                            ? "text-red-500"
-                            : "text-green-600"
-                        }`}
-                      >
-                        {inviteMessage}
-                      </p>
-                    )}
-                  </div>
+    <div className="flex-1 relative overflow-hidden">
+      <Chat client={client}>
+        <div className="flex h-full">
+          <div
+            className={`${
+              isMobile && selectedChannel ? "hidden" : "block"
+            } w-full md:w-80 border-r bg-background flex flex-col relative`}
+          >
+            <div className="p-2 border-b border-r space-y-2">
+              <div className="flex items-center justify-between">
+                <h2 className="font-medium text-sm text-muted-foreground uppercase tracking-wide">
+                  Chats
+                </h2>
+                {isOwner && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setShowUserList(!showUserList)}
+                    className="flex items-center gap-2"
+                  >
+                    <UserPlus className="h-4 w-4" />
+                    {isMobile ? "" : "Invite"}
+                  </Button>
                 )}
               </div>
-              <div className="flex-1 overflow-hidden">
-                <ChannelList
-                  key={refreshKey}
-                  filters={filters}
-                  options={options}
-                  sort={sort}
-                  showChannelSearch
-                  Preview={(props) => (
-                    <div onClick={() => setSelectedChannel(props.channel)}>
-                      <CustomChannelPreview {...props} />
-                    </div>
-                  )}
-                  additionalChannelSearchProps={{
-                    searchForChannels: true,
-                    searchQueryParams: {
-                      channelFilters: {
-                        filters: { members: { $in: [user?._id || ""] } },
-                      },
-                    },
-                  }}
-                />
-              </div>
-            </div>
 
-            <div
-              className={`${
-                isMobile && !selectedChannel ? "hidden" : "flex-1"
-              } relative`}
-            >
-              {!selectedChannel && !isMobile ? (
-                <div className="flex items-center justify-center h-full">
-                  <div className="text-center">
-                    <MessageSquare className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                    <h3 className="text-lg font-medium text-foreground mb-2">
-                      Welcome to Chat
-                    </h3>
-                    <p className="text-muted-foreground">
-                      Select a channel to start messaging
-                    </p>
-                  </div>
-                </div>
-              ) : (
-                <Channel>
-                  <Window>
-                    {isMobile && selectedChannel && (
-                      <div className="flex items-center p-3 border-b bg-background">
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => setSelectedChannel(null)}
-                          className="mr-3"
-                        >
-                          <ArrowLeft className="h-4 w-4" />
-                        </Button>
-                        <div className="flex-1">
-                          <ChannelHeader />
+              {isOwner && showUserList && (
+                <div className="space-y-2">
+                  <div className="relative">
+                    <Input
+                      placeholder="Search users to invite..."
+                      value={searchQuery}
+                      onChange={handleSearchChange}
+                      className="w-full"
+                      disabled={isInviting}
+                    />
+
+                    {filteredMembers.length > 0 && (
+                      <div className="absolute top-full left-0 right-0 bg-card border border-border rounded-md shadow-lg z-10 mt-1 max-h-40 overflow-y-auto">
+                        {filteredMembers.map((member: any) => (
+                          <div
+                            key={member.userId._id}
+                            onClick={() => handleSelectUser(member)}
+                            className="p-2 hover:bg-accent cursor-pointer text-sm"
+                          >
+                            {member.userId.name}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {searchQuery.length > 0 && filteredMembers.length === 0 && (
+                      <div className="absolute top-full left-0 right-0 bg-card border border-border rounded-md shadow-lg z-10 mt-1 p-2">
+                        <div className="text-sm text-muted-foreground">
+                          No users found
                         </div>
                       </div>
                     )}
-                    {!isMobile && <ChannelHeader />}
-                    <MessageList />
-                    <MessageInput />
-                  </Window>
-                  <Thread />
-                </Channel>
+                  </div>
+
+                  <div className="flex gap-2">
+                    <Button
+                      onClick={handleInviteMember}
+                      disabled={isInviting || !selectedUser}
+                      size="sm"
+                      className="flex-1"
+                    >
+                      {isInviting ? "Inviting..." : "Invite Member"}
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => {
+                        setShowUserList(false);
+                        setSearchQuery("");
+                        setSelectedUser(null);
+                      }}
+                    >
+                      Cancel
+                    </Button>
+                  </div>
+
+                  {inviteMessage && (
+                    <p
+                      className={`text-xs ${
+                        inviteMessage.includes("Failed")
+                          ? "text-red-500"
+                          : "text-green-600"
+                      }`}
+                    >
+                      {inviteMessage}
+                    </p>
+                  )}
+                </div>
               )}
             </div>
+            <div className="flex-1 overflow-y-auto">
+              <ChannelList
+                key={refreshKey}
+                filters={filters}
+                options={options}
+                sort={sort}
+                showChannelSearch
+                Preview={(props) => (
+                  <div onClick={() => setSelectedChannel(props.channel)}>
+                    <CustomChannelPreview {...props} />
+                  </div>
+                )}
+                additionalChannelSearchProps={{
+                  searchForChannels: true,
+                  searchQueryParams: {
+                    channelFilters: {
+                      filters: { members: { $in: [user?._id || ""] } },
+                    },
+                  },
+                }}
+              />
+            </div>
           </div>
-        </Chat>
-      </div>
+
+          <div
+            className={`${
+              isMobile && !selectedChannel ? "hidden" : "flex-1"
+            } relative`}
+          >
+            {!selectedChannel && !isMobile ? (
+              <div className="flex items-center justify-center h-full">
+                <div className="text-center">
+                  <MessageSquare className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
+                  <h3 className="text-lg font-medium text-foreground mb-2">
+                    Welcome to Chat
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Select a channel to start messaging
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <Channel>
+                <Window>
+                  {isMobile && selectedChannel && (
+                    <div className="flex items-center p-3 border-b bg-background">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => setSelectedChannel(null)}
+                        className="mr-3"
+                      >
+                        <ArrowLeft className="h-4 w-4" />
+                      </Button>
+                      <div className="flex-1">
+                        <ChannelHeader />
+                      </div>
+                    </div>
+                  )}
+                  {!isMobile && <ChannelHeader />}
+                  <MessageList />
+                  <MessageInput />
+                </Window>
+                <Thread />
+              </Channel>
+            )}
+          </div>
+        </div>
+      </Chat>
     </div>
   );
 };

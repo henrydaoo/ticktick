@@ -15,37 +15,89 @@ import "@/components/chat/chat-styles.css";
 import { useAuthContext } from "@/context/auth-provider";
 import useWorkspaceId from "@/hooks/use-workspace-id";
 import { useChatClient } from "@/hooks/use-chat-client";
-import { joinWorkspaceChannel, generateUserToken } from "@/lib/stream-chat";
+import useGetWorkspaceMembers from "@/hooks/api/use-get-workspace-members";
+import { addMemberToWorkspaceChannel } from "@/lib/stream-chat";
 import { Button } from "@/components/ui/button";
-import { Users, MessageSquare } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { MessageSquare, UserPlus } from "lucide-react";
 import CustomChannelPreview from "@/components/chat/custom-channel-preview";
-import { ChatInfo } from "@/components/chat/chat-info";
 
 const Chats = () => {
   const { user, workspace } = useAuthContext();
   const workspaceId = useWorkspaceId();
   const { client, loading, error } = useChatClient();
-  const [joinError, setJoinError] = useState<string | null>(null);
+  const { data: membersData } = useGetWorkspaceMembers(workspaceId);
+  const [refreshKey, setRefreshKey] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedUser, setSelectedUser] = useState<{
+    id: string;
+    name: string;
+  } | null>(null);
+  const [isInviting, setIsInviting] = useState(false);
+  const [inviteMessage, setInviteMessage] = useState("");
+  const [showUserList, setShowUserList] = useState(false);
 
-  const handleJoinWorkspaceChannel = async () => {
-    if (!client || !user || !workspaceId) return;
+  const isOwner = workspace?.owner === user?._id;
+  const members = membersData?.members || [];
+
+  const filteredMembers =
+    searchQuery.length > 0
+      ? members
+          .filter(
+            (member) =>
+              member.userId._id !== user?._id &&
+              member.userId.name
+                .toLowerCase()
+                .includes(searchQuery.toLowerCase())
+          )
+          .slice(0, 5)
+      : [];
+
+  const handleSelectUser = (member: any) => {
+    setSelectedUser({ id: member.userId._id, name: member.userId.name });
+    setSearchQuery(member.userId.name);
+    setShowUserList(false);
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+    setShowUserList(value.length > 0);
+    if (value === "") {
+      setSelectedUser(null);
+    }
+  };
+
+  const handleInviteMember = async () => {
+    if (!client || !user || !workspaceId || !selectedUser) return;
 
     try {
-      setJoinError(null);
-      const userToken = generateUserToken(user._id);
-      await joinWorkspaceChannel(
+      setIsInviting(true);
+      setInviteMessage("");
+
+      const userIdToAdd = selectedUser.id;
+
+      const result = await addMemberToWorkspaceChannel(
         client,
         workspaceId,
-        user._id,
-        userToken,
-        user.name,
-        user.profilePicture || undefined,
-        workspace?.name
+        userIdToAdd
       );
-      console.log("Successfully joined workspace channel");
+
+      setInviteMessage(result.message);
+      setSearchQuery("");
+      setSelectedUser(null);
+      setShowUserList(false);
+      setRefreshKey((prev) => prev + 1);
+
+      setTimeout(() => setInviteMessage(""), 3000);
     } catch (error) {
-      console.error("Failed to join workspace channel:", error);
-      setJoinError("Failed to join workspace channel. Please try again.");
+      setInviteMessage(
+        `Failed to invite member: ${
+          error instanceof Error ? error.message : "Unknown error"
+        }`
+      );
+    } finally {
+      setIsInviting(false);
     }
   };
 
@@ -82,43 +134,91 @@ const Chats = () => {
 
   return (
     <div className="flex flex-col h-full">
-      {/* Header với các action buttons */}
+      {/* Header */}
       <div className="border-b bg-background p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <MessageSquare className="h-6 w-6" />
             <h1 className="text-xl font-semibold">Chat</h1>
           </div>
-          <div className="flex flex-col gap-2">
-            <div className="flex gap-2">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handleJoinWorkspaceChannel}
-                className="flex items-center gap-2"
-              >
-                <Users className="h-4 w-4" />
-                Join Workspace Channel
-              </Button>
+
+          {/* Admin invite section */}
+          {isOwner && (
+            <div className="flex flex-col gap-2 relative">
+              <div className="flex gap-2">
+                <div className="relative">
+                  <Input
+                    placeholder="Search users to invite..."
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                    className="w-48"
+                    disabled={isInviting}
+                  />
+
+                  {/* User dropdown */}
+                  {showUserList && filteredMembers.length > 0 && (
+                    <div className="absolute top-full left-0 right-0 bg-card border border-border rounded-md shadow-lg z-10 mt-1 max-h-40 overflow-y-auto">
+                      {filteredMembers.map((member: any) => (
+                        <div
+                          key={member.userId._id}
+                          onClick={() => handleSelectUser(member)}
+                          className="p-2 hover:bg-accent cursor-pointer text-sm"
+                        >
+                          {member.userId.name}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {showUserList &&
+                    searchQuery.length > 0 &&
+                    filteredMembers.length === 0 && (
+                      <div className="absolute top-full left-0 right-0 bg-card border border-border rounded-md shadow-lg z-10 mt-1 p-2">
+                        <div className="text-sm text-muted-foreground">
+                          No users found
+                        </div>
+                      </div>
+                    )}
+                </div>
+
+                <Button
+                  onClick={handleInviteMember}
+                  disabled={isInviting || !selectedUser}
+                  size="sm"
+                  className="flex items-center gap-2"
+                >
+                  <UserPlus className="h-4 w-4" />
+                  {isInviting ? "Inviting..." : "Invite"}
+                </Button>
+              </div>
+              {inviteMessage && (
+                <p
+                  className={`text-sm ${
+                    inviteMessage.includes("Failed")
+                      ? "text-red-500"
+                      : "text-green-600"
+                  }`}
+                >
+                  {inviteMessage}
+                </p>
+              )}
             </div>
-            {joinError && <p className="text-sm text-red-500">{joinError}</p>}
-          </div>
+          )}
         </div>
       </div>
 
-      {/* Chat Interface */}
       <div className="flex-1 relative">
         <Chat client={client}>
           <div className="flex h-full">
-            {/* Channel List */}
             <div className="w-80 border-r bg-background flex flex-col">
-              <div className="p-4 border-b">
+              <div className="p-4 border-b border-r">
                 <h2 className="font-medium text-sm text-muted-foreground uppercase tracking-wide">
                   Channels
                 </h2>
               </div>
               <div className="flex-1 overflow-hidden">
                 <ChannelList
+                  key={refreshKey}
                   filters={filters}
                   options={options}
                   sort={sort}
@@ -133,9 +233,6 @@ const Chats = () => {
                     },
                   }}
                 />
-              </div>
-              <div className="border-t">
-                <ChatInfo />
               </div>
             </div>
 

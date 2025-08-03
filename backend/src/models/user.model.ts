@@ -6,7 +6,7 @@ export interface UserDocument extends Document {
   email: string;
   password?: string;
   profilePicture: string | null;
-  isActive: boolean;
+  isEmailVerified: boolean;
   lastLogin: Date | null;
   createdAt: Date;
   updatedAt: Date;
@@ -38,7 +38,7 @@ const userSchema = new Schema<UserDocument>(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Workspace",
     },
-    isActive: { type: Boolean, default: true },
+    isEmailVerified: { type: Boolean, default: false },
     lastLogin: { type: Date, default: null },
   },
   {

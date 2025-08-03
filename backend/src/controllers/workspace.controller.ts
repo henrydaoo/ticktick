@@ -5,7 +5,7 @@ import {
   changeRoleSchema,
   createWorkspaceSchema,
   workspaceIdSchema,
-  updateWorkspaceSchema
+  updateWorkspaceSchema,
 } from "../validation/workspace.validation";
 import { HTTPSTATUS } from "../config/http.config";
 import {
@@ -35,8 +35,6 @@ export const createWorkspaceController = asyncHandler(
     });
   }
 );
-
-// Controller: Get all workspaces the user is part of
 
 export const getAllWorkspacesUserIsMemberController = asyncHandler(
   async (req: Request, res: Response) => {

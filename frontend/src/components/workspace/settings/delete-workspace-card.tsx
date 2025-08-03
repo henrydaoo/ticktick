@@ -60,9 +60,9 @@ const DeleteWorkspaceCard = () => {
           <div className="flex flex-col items-start justify-between py-0">
             <div className="flex-1 mb-2">
               <p>
-                Deleting a workspace is a permanent action and cannot be undone.
-                Once you delete a workspace, all its associated data, including
-                projects, tasks, and member roles, will be permanently removed.
+                Deleting your workspace is a permanent action and cannot be undone.
+                Once you delete your workspace, all its associated data, including
+                projects and tasks, will be permanently removed.
                 Please proceed with caution and ensure this action is
                 intentional.
               </p>

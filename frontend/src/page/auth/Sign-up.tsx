@@ -37,7 +37,7 @@ const SignUp = () => {
       message: "Name is required",
     }),
     email: z.string().trim().email("Invalid email address").min(1, {
-      message: "Workspace name is required",
+      message: "Email is required",
     }),
     password: z.string().trim().min(1, {
       message: "Password is required",
@@ -83,9 +83,9 @@ const SignUp = () => {
         <div className="flex flex-col gap-6">
           <Card>
             <CardHeader className="text-center">
-              <CardTitle className="text-xl">Create an account</CardTitle>
+              <CardTitle className="text-xl">Create your account</CardTitle>
               <CardDescription>
-                Signup with your Email or Google account
+                Join TickTick and start managing projects with your team
               </CardDescription>
             </CardHeader>
             <CardContent>

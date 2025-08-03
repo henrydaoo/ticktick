@@ -117,7 +117,7 @@ export default function CreateTaskForm(props: {
       }
     ),
     assignedTo: z.string().trim().min(1, {
-      message: "AssignedTo is required",
+      message: "Please assign task to a team member",
     }),
     dueDate: z.date({
       required_error: "A date of birth is required.",
@@ -188,7 +188,7 @@ export default function CreateTaskForm(props: {
             Create Task
           </h1>
           <p className="text-muted-foreground text-sm leading-tight">
-            Organize and manage tasks, resources, and team collaboration
+            Create and organize tasks within projects and assign to team members
           </p>
         </div>
         <Form {...form}>

@@ -15,8 +15,8 @@ export default function Members() {
               Workspace members
             </h2>
             <p className="text-sm text-muted-foreground">
-              Workspace members can view and join all Workspace project, tasks
-              and create new task in the Workspace.
+              Manage workspace members and collaborate on projects together.
+              Invite team members to help with specific projects and assign tasks.
             </p>
           </div>
           <Separator className="my-4" />

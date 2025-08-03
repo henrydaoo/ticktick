@@ -103,7 +103,7 @@ export default function EditWorkspaceForm() {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="Taco's Co."
+                        placeholder="Team Project Hub"
                         className="!h-[48px] disabled:opacity-90 disabled:pointer-events-none"
                         disabled={!canEditWorkspace}
                         {...field}
@@ -121,7 +121,7 @@ export default function EditWorkspaceForm() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="dark:text-[#f1f7feb5] text-sm">
-                      Workspace description
+                      Description
                       <span className="text-xs font-extralight ml-2">
                         Optional
                       </span>
@@ -131,7 +131,7 @@ export default function EditWorkspaceForm() {
                         rows={6}
                         disabled={!canEditWorkspace}
                         className="disabled:opacity-90 disabled:pointer-events-none"
-                        placeholder="Our team organizes marketing projects and tasks here."
+                        placeholder="We manage our team projects and collaborate on various initiatives here."
                         {...field}
                       />
                     </FormControl>

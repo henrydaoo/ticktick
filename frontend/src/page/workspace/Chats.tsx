@@ -15,14 +15,14 @@ import "@/components/chat/chat-styles.css";
 import { useAuthContext } from "@/context/auth-provider";
 import useWorkspaceId from "@/hooks/use-workspace-id";
 import { useChatClient } from "@/hooks/use-chat-client";
+import { joinWorkspaceChannel, generateUserToken } from "@/lib/stream-chat";
 import { Button } from "@/components/ui/button";
 import { Users, MessageSquare } from "lucide-react";
 import CustomChannelPreview from "@/components/chat/custom-channel-preview";
 import { ChatInfo } from "@/components/chat/chat-info";
-import { joinWorkspaceChannel, generateUserToken } from "@/lib/stream-chat";
 
 const Chats = () => {
-  const { user } = useAuthContext();
+  const { user, workspace } = useAuthContext();
   const workspaceId = useWorkspaceId();
   const { client, loading, error } = useChatClient();
   const [joinError, setJoinError] = useState<string | null>(null);
@@ -39,7 +39,8 @@ const Chats = () => {
         user._id,
         userToken,
         user.name,
-        user.profilePicture || undefined
+        user.profilePicture || undefined,
+        workspace?.name
       );
       console.log("Successfully joined workspace channel");
     } catch (error) {
@@ -50,7 +51,6 @@ const Chats = () => {
 
   const filters = {
     members: { $in: [user?._id || ""] },
-    type: "try",
   };
   const options = { presence: true, state: true };
   const sort = { last_message_at: -1 as const };

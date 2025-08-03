@@ -51,7 +51,8 @@ export const useChatClient = () => {
               user._id,
               userToken,
               user.name,
-              user.profilePicture || undefined
+              user.profilePicture || undefined,
+              workspace.name
             );
             console.log("Workspace channel created/ensured");
           } catch (error) {

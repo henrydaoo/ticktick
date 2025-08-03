@@ -5,12 +5,14 @@ import TaskTable from "@/components/workspace/task/task-table";
 
 const ProjectDetails = () => {
   return (
-    <div className="w-full space-y-6 py-4 md:pt-3">
-      <ProjectHeader />
-      <div className="space-y-5">
-        <ProjectAnalytics />
-        <Separator />
-        <TaskTable />
+    <div className="px-3 lg:px-20 py-3">
+      <div className="w-full space-y-6 py-4 md:pt-3">
+        <ProjectHeader />
+        <div className="space-y-5">
+          <ProjectAnalytics />
+          <Separator />
+          <TaskTable />
+        </div>
       </div>
     </div>
   );

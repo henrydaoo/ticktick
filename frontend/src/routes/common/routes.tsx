@@ -8,6 +8,7 @@ import Members from "@/page/workspace/Members";
 import Settings from "@/page/workspace/Settings";
 import ProjectDetails from "@/page/workspace/ProjectDetails";
 import InviteUser from "@/page/invite/InviteUser";
+import Chats from "@/page/workspace/Chats";
 
 interface RouteConfig {
   path: string;
@@ -25,10 +26,10 @@ export const protectedRoutePaths: RouteConfig[] = [
   { path: PROTECTED_ROUTES.TASKS, element: <Tasks /> },
   { path: PROTECTED_ROUTES.MEMBERS, element: <Members /> },
   { path: PROTECTED_ROUTES.SETTINGS, element: <Settings /> },
+  { path: PROTECTED_ROUTES.CHAT, element: <Chats /> },
   { path: PROTECTED_ROUTES.PROJECT_DETAILS, element: <ProjectDetails /> },
 ];
 
 export const baseRoutePaths: RouteConfig[] = [
-    { path: BASE_ROUTE.INVITE_URL, element: <InviteUser /> },
-
+  { path: BASE_ROUTE.INVITE_URL, element: <InviteUser /> },
 ];

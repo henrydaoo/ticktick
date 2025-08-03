@@ -1,9 +1,20 @@
 import { NextFunction, Request, Response } from "express";
 import { asyncHandler } from "../middlewares/asyncHandler.middleware";
 import { config } from "../config/app.config";
-import { registerSchema } from "../validation/auth.validation";
+import {
+  registerSchema,
+  forgotPasswordSchema,
+  resetPasswordSchema,
+  resendVerificationSchema,
+} from "../validation/auth.validation";
 import { HTTPSTATUS } from "../config/http.config";
-import { registerUserService } from "../services/auth.service";
+import {
+  registerUserService,
+  verifyEmailService,
+  resendVerificationEmailService,
+  forgotPasswordService,
+  resetPasswordService,
+} from "../services/auth.service";
 import passport from "passport";
 
 export const googleLoginCallback = asyncHandler(
@@ -28,10 +39,12 @@ export const registerUserController = asyncHandler(
       ...req.body,
     });
 
-    await registerUserService(body);
+    const result = await registerUserService(body);
 
     return res.status(HTTPSTATUS.CREATED).json({
-      message: "User created successfully",
+      message: result.message,
+      userId: result.userId,
+      workspaceId: result.workspaceId,
     });
   }
 );
@@ -93,5 +106,51 @@ export const logOutController = asyncHandler(
           .json({ message: "Logged out successfully" });
       });
     });
+  }
+);
+
+export const verifyEmailController = asyncHandler(
+  async (req: Request, res: Response) => {
+    const { token } = req.query;
+
+    if (!token || typeof token !== 'string') {
+      return res.status(HTTPSTATUS.BAD_REQUEST).json({
+        message: "Verification token is required",
+      });
+    }
+
+    const result = await verifyEmailService(token);
+
+    return res.status(HTTPSTATUS.OK).json(result);
+  }
+);
+
+export const resendVerificationEmailController = asyncHandler(
+  async (req: Request, res: Response) => {
+    const body = resendVerificationSchema.parse(req.body);
+
+    const result = await resendVerificationEmailService(body.email);
+
+    return res.status(HTTPSTATUS.OK).json(result);
+  }
+);
+
+export const forgotPasswordController = asyncHandler(
+  async (req: Request, res: Response) => {
+    const body = forgotPasswordSchema.parse(req.body);
+
+    const result = await forgotPasswordService(body.email);
+
+    return res.status(HTTPSTATUS.OK).json(result);
+  }
+);
+
+export const resetPasswordController = asyncHandler(
+  async (req: Request, res: Response) => {
+    const body = resetPasswordSchema.parse(req.body);
+
+    const result = await resetPasswordService(body.token, body.password);
+
+    return res.status(HTTPSTATUS.OK).json(result);
   }
 );

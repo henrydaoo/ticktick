@@ -1,11 +1,11 @@
-"use client";
-
 import {
   LucideIcon,
   Settings,
   Users,
   CheckCircle,
   LayoutDashboard,
+  Bell,
+  MessageSquareMore,
 } from "lucide-react";
 import {
   SidebarGroup,
@@ -30,7 +30,6 @@ export function NavMain() {
   const canManageSettings = hasPermission(
     Permissions.MANAGE_WORKSPACE_SETTINGS
   );
-
   const workspaceId = useWorkspaceId();
   const location = useLocation();
 
@@ -48,11 +47,15 @@ export function NavMain() {
       icon: CheckCircle,
     },
     {
+      title: "Chats",
+      url: `/workspace/${workspaceId}/chats`,
+      icon: MessageSquareMore,
+    },
+    {
       title: "Members",
       url: `/workspace/${workspaceId}/members`,
       icon: Users,
     },
-
     ...(canManageSettings
       ? [
           {

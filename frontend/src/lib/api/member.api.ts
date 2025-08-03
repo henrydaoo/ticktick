@@ -6,6 +6,6 @@ export const invitedUserJoinWorkspaceMutationFn = async (
   message: string;
   workspaceId: string;
 }> => {
-  const response = await API.post(`/member/workspace/${iniviteCode}/join`);
+  const response = await API.post(`/members/workspace/${iniviteCode}/join`);
   return response.data;
 };

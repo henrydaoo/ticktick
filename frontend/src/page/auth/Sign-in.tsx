@@ -39,8 +39,8 @@ const SignIn = () => {
     email: z.string().trim().email("Invalid email address").min(1, {
       message: "Email is required",
     }),
-    password: z.string().trim().min(1, {
-      message: "Password is required",
+    password: z.string().trim().min(6, {
+      message: "Password must be at least 6 characters long",
     }),
   });
 
@@ -62,10 +62,11 @@ const SignIn = () => {
         const decodedUrl = returnUrl ? decodeURIComponent(returnUrl) : null;
         navigate(decodedUrl || `/workspace/${user.currentWorkspace}`);
       },
-      onError: (error) => {
+      onError: (error: any) => {
+        const errorMessage = error.response?.data?.message || error.message;
         toast({
           title: "Error",
-          description: error.message,
+          description: errorMessage,
           variant: "destructive",
         });
       },
@@ -135,12 +136,12 @@ const SignIn = () => {
                                 <FormLabel className="dark:text-[#f1f7feb5] text-sm">
                                   Password
                                 </FormLabel>
-                                <a
-                                  href="#"
+                                <Link
+                                  to="/forgot-password"
                                   className="ml-auto text-sm underline-offset-4 hover:underline"
                                 >
                                   Forgot your password?
-                                </a>
+                                </Link>
                               </div>
                               <FormControl>
                                 <Input

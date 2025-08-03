@@ -14,7 +14,7 @@ export const createProjectMutationFn = async ({
   data,
 }: CreateProjectPayloadType): Promise<ProjectResponseType> => {
   const response = await API.post(
-    `/project/workspace/${workspaceId}/create`,
+    `/projects/workspace/${workspaceId}/create`,
     data
   );
   return response.data;
@@ -26,7 +26,7 @@ export const editProjectMutationFn = async ({
   data,
 }: EditProjectPayloadType): Promise<ProjectResponseType> => {
   const response = await API.put(
-    `/project/${projectId}/workspace/${workspaceId}/update`,
+    `/projects/${projectId}/workspace/${workspaceId}/update`,
     data
   );
   return response.data;
@@ -38,7 +38,7 @@ export const getProjectsInWorkspaceQueryFn = async ({
   pageNumber = 1,
 }: AllProjectPayloadType): Promise<AllProjectResponseType> => {
   const response = await API.get(
-    `/project/workspace/${workspaceId}/all?pageSize=${pageSize}&pageNumber=${pageNumber}`
+    `/projects/workspace/${workspaceId}/all?pageSize=${pageSize}&pageNumber=${pageNumber}`
   );
   return response.data;
 };
@@ -48,7 +48,7 @@ export const getProjectByIdQueryFn = async ({
   projectId,
 }: ProjectByIdPayloadType): Promise<ProjectResponseType> => {
   const response = await API.get(
-    `/project/${projectId}/workspace/${workspaceId}`
+    `/projects/${projectId}/workspace/${workspaceId}`
   );
   return response.data;
 };
@@ -58,7 +58,7 @@ export const getProjectAnalyticsQueryFn = async ({
   projectId,
 }: ProjectByIdPayloadType): Promise<AnalyticsResponseType> => {
   const response = await API.get(
-    `/project/${projectId}/workspace/${workspaceId}/analytics`
+    `/projects/${projectId}/workspace/${workspaceId}/analytics`
   );
   return response.data;
 };
@@ -70,7 +70,7 @@ export const deleteProjectMutationFn = async ({
   message: string;
 }> => {
   const response = await API.delete(
-    `/project/${projectId}/workspace/${workspaceId}/delete`
+    `/projects/${projectId}/workspace/${workspaceId}/delete`
   );
   return response.data;
 };

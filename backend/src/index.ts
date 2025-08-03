@@ -61,6 +61,18 @@ app.use(
 );
 
 app.get(
+  `/health`,
+  asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+    res.status(200).json({
+      status: "OK",
+      message: "Server is running",
+      timestamp: new Date().toISOString(),
+      uptime: process.uptime(),
+    });
+  })
+);
+
+app.get(
   `/`,
   asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
     throw new BadRequestException(
@@ -70,12 +82,16 @@ app.get(
   })
 );
 
-app.use(`${BASE_PATH}/auth`, authRoutes);
-app.use(`${BASE_PATH}/user`, isAuthenticated, userRoutes);
-app.use(`${BASE_PATH}/workspace`, isAuthenticated, workspaceRoutes);
-app.use(`${BASE_PATH}/member`, isAuthenticated, memberRoutes);
-app.use(`${BASE_PATH}/project`, isAuthenticated, projectRoutes);
-app.use(`${BASE_PATH}/task`, isAuthenticated, taskRoutes);
+const apiV1Router = express.Router();
+
+apiV1Router.use('/auth', authRoutes);
+apiV1Router.use('/users', isAuthenticated, userRoutes);
+apiV1Router.use('/workspaces', isAuthenticated, workspaceRoutes);
+apiV1Router.use('/members', isAuthenticated, memberRoutes);
+apiV1Router.use('/projects', isAuthenticated, projectRoutes);
+apiV1Router.use('/tasks', isAuthenticated, taskRoutes);
+
+app.use(`${BASE_PATH}/v1`, apiV1Router);
 
 app.use(errorHandler);
 

@@ -21,7 +21,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { MessageSquare, UserPlus, ArrowLeft } from "lucide-react";
 import CustomChannelPreview from "@/components/chat/custom-channel-preview";
-import CustomChannelSearch from "@/components/chat/custom-channel-search";
 
 const Chats = () => {
   const { user, workspace } = useAuthContext();

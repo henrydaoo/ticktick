@@ -6,12 +6,16 @@ import Footer from "@/components/home/footer";
 
 const HomePage = () => {
   return (
-    <div className="font-sans antialiased bg-[#084FFF] relative min-h-screen">
-      <Header />
-      <HeroSection />
-      <CTA />
-      <Footer />
+    <div className="font-sans antialiased bg-[#084FFF] relative min-h-screen flex flex-col">
       <Background />
+      <div className="relative z-10 flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-1">
+          <HeroSection />
+          <CTA />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 };

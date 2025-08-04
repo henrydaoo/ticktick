@@ -1,7 +1,7 @@
 const Background = () => {
   return (
-    <div className="pb-0 text-white bg-[#084FFF] overflow-x-hidden w-full absolute top-0 left-0">
-      <div className=" bg-[#084FFF] w-full h-full flex items-center justify-center">
+    <div className="absolute inset-0 text-white bg-[#084FFF] overflow-hidden pointer-events-none">
+      <div className="bg-[#084FFF] w-full h-full flex items-center justify-center">
         <div
           className="w-[150%] aspect-square rounded-full bg-[#0648DB] flex items-center justify-center -mt-[15%]"
           style={{ boxShadow: "inset 0 2px 8px rgba(0, 0, 0, 0.15)" }}

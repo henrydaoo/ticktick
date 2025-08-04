@@ -1,8 +1,8 @@
-import Logo from "../../components/logo";
+import Logo from "@/components/logo";
 
 const HeroSection = () => {
   return (
-    <div className="container relative z-10 pt-16 lg:pt-28 h-auto lg:h-screen mx-auto px-4 lg:px-8 text-center flex flex-col items-center pb-8 lg:pb-0">
+    <div className="container relative z-10 pt-16 lg:pt-28 h-auto mx-auto px-4 lg:px-8 text-center flex flex-col items-center pb-8 lg:pb-0">
       <div className="flex items-center space-x-2 lg:space-x-3 mb-3 lg:mb-6">
         <div className="hidden lg:block">
           <Logo size="lg" />
@@ -21,7 +21,7 @@ const HeroSection = () => {
         <img
           src="/images/hero.png"
           alt="TickTick Dashboard"
-          className="max-w-[90%] lg:max-w-[85%] mx-auto max-h-[400px] lg:max-h-[85%] w-auto h-auto object-contain"
+          className="max-w-[90%] lg:max-w-[85%] mx-auto max-h-[400px] lg:max-h-[500px] w-auto h-auto object-contain"
         />
       </div>
     </div>

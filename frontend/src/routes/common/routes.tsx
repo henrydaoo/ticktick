@@ -12,6 +12,7 @@ import Settings from "@/page/workspace/Settings";
 import ProjectDetails from "@/page/workspace/ProjectDetails";
 import InviteUser from "@/page/invite/InviteUser";
 import Chats from "@/page/workspace/Chats";
+import HomePage from "@/page/home/HomePage";
 
 interface RouteConfig {
   path: string;
@@ -19,6 +20,10 @@ interface RouteConfig {
 }
 
 export const authenticationRoutePaths: RouteConfig[] = [
+  {
+    path: AUTH_ROUTES.HOME_PATH,
+    element: <HomePage />,
+  },
   { path: AUTH_ROUTES.SIGN_IN, element: <SignIn /> },
   { path: AUTH_ROUTES.SIGN_UP, element: <SignUp /> },
   { path: AUTH_ROUTES.GOOGLE_OAUTH_CALLBACK, element: <GoogleOAuthFailure /> },

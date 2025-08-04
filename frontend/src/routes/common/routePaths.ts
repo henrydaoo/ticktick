@@ -3,7 +3,8 @@ export const isAuthRoute = (pathname: string): boolean => {
 };
 
 export const AUTH_ROUTES = {
-  SIGN_IN: "/",
+  HOME_PATH: "/",
+  SIGN_IN: "/sign-in",
   SIGN_UP: "/sign-up",
   GOOGLE_OAUTH_CALLBACK: "/google/oauth/callback",
   VERIFY_EMAIL: "/verify-email",

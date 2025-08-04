@@ -1,0 +1,33 @@
+const Background = () => {
+  return (
+    <div className="pb-0 text-white bg-[#084FFF] overflow-x-hidden w-full absolute top-0 left-0">
+      <div className=" bg-[#084FFF] w-full h-full flex items-center justify-center">
+        <div
+          className="w-[150%] aspect-square rounded-full bg-[#0648DB] flex items-center justify-center -mt-[15%]"
+          style={{ boxShadow: "inset 0 2px 8px rgba(0, 0, 0, 0.15)" }}
+        >
+          <div
+            className="w-[75%] aspect-square rounded-full bg-[#0442BA] flex items-center justify-center"
+            style={{ boxShadow: "inset 0 2px 8px rgba(0, 0, 0, 0.2)" }}
+          >
+            <div
+              className="aspect-square w-[75%] rounded-full bg-[#023DA1] flex items-center justify-center"
+              style={{ boxShadow: "inset 0 2px 8px rgba(0, 0, 0, 0.25)" }}
+            >
+              <div
+                className="aspect-square w-[70%] rounded-full bg-[#075AD8] flex items-center justify-center"
+                style={{ boxShadow: "inset 0 2px 8px rgba(0, 0, 0, 0.2)" }}
+              >
+                <div
+                  className="aspect-square w-[60%] rounded-full bg-[#B5CEF3] flex flex-col items-center justify-center lg:justify-end relative"
+                  style={{ boxShadow: "inset 0 2px 8px rgba(0, 0, 0, 0.3)" }}
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+export default Background;

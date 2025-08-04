@@ -139,7 +139,7 @@ const SignUp = () => {
                   Resend verification email
                 </Button>
                 <Button asChild className="w-full">
-                  <Link to="/">Go to Sign In</Link>
+                  <Link to="/sign-in">Go to Sign In</Link>
                 </Button>
               </div>
             </CardContent>
@@ -257,7 +257,7 @@ const SignUp = () => {
                     </div>
                     <div className="text-center text-sm">
                       Already have an account?{" "}
-                      <Link to="/" className="underline underline-offset-4">
+                      <Link to="/sign-in" className="underline underline-offset-4">
                         Sign in
                       </Link>
                     </div>

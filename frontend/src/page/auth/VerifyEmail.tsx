@@ -23,7 +23,7 @@ const VerifyEmail = () => {
         description: data.message,
       });
       setTimeout(() => {
-        navigate("/");
+        navigate("/sign-in");
       }, 3000);
     },
     onError: (error: any) => {
@@ -78,7 +78,7 @@ const VerifyEmail = () => {
             </p>
             <div className="mt-4">
               <Button asChild className="w-full">
-                <Link to="/">Go to Sign In</Link>
+                <Link to="/sign-in">Go to Sign In</Link>
               </Button>
             </div>
           </>
@@ -101,7 +101,7 @@ const VerifyEmail = () => {
                 <Link to="/sign-up">Create New Account</Link>
               </Button>
               <Button asChild variant="outline" className="w-full">
-                <Link to="/">Back to Sign In</Link>
+                <Link to="/sign-in">Back to Sign In</Link>
               </Button>
             </div>
           </>

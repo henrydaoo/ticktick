@@ -95,7 +95,7 @@ const ForgotPassword = () => {
               </p>
               <div className="space-y-2">
                 <Button asChild className="w-full">
-                  <Link to="/">Back to Sign In</Link>
+                  <Link to="/sign-in">Back to Sign In</Link>
                 </Button>
                 <Button
                   variant="outline"
@@ -163,7 +163,7 @@ const ForgotPassword = () => {
                     Send reset email
                   </Button>
                   <Button asChild variant="outline" className="w-full">
-                    <Link to="/" className="flex items-center gap-2">
+                    <Link to="/sign-in" className="flex items-center gap-2">
                       <ArrowLeft className="h-4 w-4" />
                       Back to Sign In
                     </Link>

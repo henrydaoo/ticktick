@@ -27,7 +27,8 @@ A modern, collaborative project management platform with integrated real-time me
 - **Security**: Secure token generation, auto-expiring tokens, password hashing
 - **Deployment**: Vercel (Frontend), Render (Backend)
 
-<img width="1264" height="995" alt="ticktickthumbnail" src="https://github.com/user-attachments/assets/014eec66-7f14-4081-bf42-1e7b9fde9187" />
+<img width="1264" height="995" alt="ticktick-thumbnail-2" src="https://github.com/user-attachments/assets/63e62663-ad9e-44da-aec2-8c10c911ae39" />
+
 
 
 ## Getting Started
@@ -63,3 +64,4 @@ npm run dev
 # Start frontend (from frontend directory)
 npm run dev
 ```
+

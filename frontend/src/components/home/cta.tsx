@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const CTA = () => {
   return (
-    <div className="relative z-10 py-4 lg:py-20 text-white">
+    <div className="relative z-10 py-4 lg:py-20 text-white animate-slide-up-cta">
       <div className="container mx-auto px-4 lg:px-8 text-center">
         <h2 className="text-lg lg:text-4xl font-semibold mb-4 leading-tight">
           Ready to unify your project management?

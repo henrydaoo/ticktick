@@ -5,7 +5,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 py-2 lg:py-4 px-2 lg:px-0">
+    <header className="fixed top-0 left-0 w-full z-50 py-2 lg:py-4 px-2 lg:px-0 animate-header-appear">
       <div className="container mx-auto bg-white rounded-lg lg:rounded-xl shadow-lg border border-gray-100 flex justify-between items-center p-1 lg:py-2 lg:px-3">
         <div className="flex items-center space-x-2">
           <Logo />

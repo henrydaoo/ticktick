@@ -3,7 +3,7 @@ import Logo from "@/components/logo";
 const HeroSection = () => {
   return (
     <div className="container relative z-10 pt-16 lg:pt-28 h-auto mx-auto px-4 lg:px-8 text-center flex flex-col items-center pb-8 lg:pb-0">
-      <div className="flex items-center space-x-2 lg:space-x-3 mb-3 lg:mb-6">
+      <div className="flex items-center space-x-2 lg:space-x-3 mb-3 lg:mb-6 animate-slide-up">
         <div className="hidden lg:block">
           <Logo size="lg" />
         </div>
@@ -14,10 +14,10 @@ const HeroSection = () => {
           TickTick
         </span>
       </div>
-      <h1 className="text-lg lg:text-3xl font-medium leading-tight text-white px-2 lg:px-4 mb-3 lg:mb-8">
+      <h1 className="text-lg lg:text-3xl font-medium leading-tight text-white px-2 lg:px-4 mb-3 lg:mb-8 animate-slide-up-delay">
         Modern Project Management with Real-time Collaboration
       </h1>
-      <div className="w-full flex-grow lg:flex-1 flex items-start justify-center">
+      <div className="w-full flex-grow lg:flex-1 flex items-start justify-center animate-slide-up-delay">
         <img
           src="/images/hero.png"
           alt="TickTick Dashboard"

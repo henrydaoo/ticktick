@@ -23,6 +23,7 @@ A modern, collaborative project management platform with integrated real-time me
 - **Frontend**: React, TypeScript, Vite, Tailwind CSS, Tanstack Query
 - **Backend**: Node.js, Express, TypeScript, MongoDB, Mongoose
 - **Real-time Chat**: Stream Chat React SDK for messaging functionality
+- **AI Chatbot**: Botpress for user support
 - **Authentication**: JWT sessions, Google OAuth, email verification
 - **Email Service**: Nodemailer with SMTP for transactional emails
 - **Security**: Secure token generation, auto-expiring tokens, password hashing
@@ -65,4 +66,5 @@ npm run dev
 # Start frontend (from frontend directory)
 npm run dev
 ```
+
 

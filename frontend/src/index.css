@@ -5,38 +5,38 @@
 /* Background Animations */
 @layer utilities {
   .animate-fade-in {
-    animation: fadeIn 1.5s ease-out forwards;
+    animation: ticktickFadeIn 1.5s ease-out forwards;
     animation-play-state: paused;
   }
   
   .animate-scale-in {
-    animation: scaleIn 1.2s ease-out forwards;
+    animation: ticktickScaleIn 1.2s ease-out forwards;
     animation-play-state: paused;
   }
   
   .animate-scale-in-delay-1 {
-    animation: scaleIn 1.2s ease-out 0.2s forwards;
+    animation: ticktickScaleIn 1.2s ease-out 0.2s forwards;
     animation-play-state: paused;
     opacity: 0;
     transform: scale(0);
   }
   
   .animate-scale-in-delay-2 {
-    animation: scaleIn 1.2s ease-out 0.4s forwards;
+    animation: ticktickScaleIn 1.2s ease-out 0.4s forwards;
     animation-play-state: paused;
     opacity: 0;
     transform: scale(0);
   }
   
   .animate-scale-in-delay-3 {
-    animation: scaleIn 1.2s ease-out 0.6s forwards;
+    animation: ticktickScaleIn 1.2s ease-out 0.6s forwards;
     animation-play-state: paused;
     opacity: 0;
     transform: scale(0);
   }
   
   .animate-scale-in-delay-4 {
-    animation: scaleIn 1.2s ease-out 0.8s forwards;
+    animation: ticktickScaleIn 1.2s ease-out 0.8s forwards;
     animation-play-state: paused;
     opacity: 0;
     transform: scale(0);
@@ -44,14 +44,14 @@
 
   /* Hero Animations */
   .animate-slide-up {
-    animation: slideUp 1s ease-out forwards;
+    animation: ticktickSlideUp 1s ease-out forwards;
     animation-play-state: paused;
     opacity: 0;
     transform: translateY(50px);
   }
 
   .animate-slide-up-delay {
-    animation: slideUp 1s ease-out 0.3s forwards;
+    animation: ticktickSlideUp 1s ease-out 0.3s forwards;
     animation-play-state: paused;
     opacity: 0;
     transform: translateY(50px);
@@ -59,7 +59,7 @@
 
   /* CTA Animation */
   .animate-slide-up-cta {
-    animation: slideUp 0.8s ease-out 1.2s forwards;
+    animation: ticktickSlideUp 0.8s ease-out 1.2s forwards;
     animation-play-state: paused;
     opacity: 0;
     transform: translateY(40px);
@@ -67,7 +67,7 @@
 
   /* Header Animation */
   .animate-header-appear {
-    animation: headerAppear 1s ease-out 0.5s forwards;
+    animation: ticktickHeaderAppear 1s ease-out 0.5s forwards;
     animation-play-state: paused;
     opacity: 0;
     transform: translateY(-20px);
@@ -88,7 +88,7 @@
   }
 }
 
-@keyframes fadeIn {
+@keyframes ticktickFadeIn {
   from {
     opacity: 0;
   }
@@ -97,7 +97,7 @@
   }
 }
 
-@keyframes scaleIn {
+@keyframes ticktickScaleIn {
   from {
     opacity: 0;
     transform: scale(0);
@@ -108,7 +108,7 @@
   }
 }
 
-@keyframes slideUp {
+@keyframes ticktickSlideUp {
   from {
     opacity: 0;
     transform: translateY(50px);
@@ -119,7 +119,7 @@
   }
 }
 
-@keyframes headerAppear {
+@keyframes ticktickHeaderAppear {
   from {
     opacity: 0;
     transform: translateY(-20px);

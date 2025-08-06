@@ -9,6 +9,7 @@ A modern, collaborative project management platform with integrated real-time me
 - **Task Management**: Create, organize, and track tasks within projects with priorities and due dates
 - **Team Collaboration**: Invite team members and assign tasks to collaborate effectively
 - **Real-time Chat**: Integrated messaging with channel invites, personal notes, and direct messaging
+- **Botpress AI Chatbot**: AI agent that answers user questions based on platform knowledge with intelligent support
 - **Member Management**: Manage team roles and permissions within workspaces
 - **Secure Authentication**: 
   - Email verification and password reset

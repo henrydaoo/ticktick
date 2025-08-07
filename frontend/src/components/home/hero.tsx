@@ -20,11 +20,12 @@ const HeroSection = () => {
       <div className="w-full flex-grow lg:flex-1 flex items-start justify-center animate-slide-up-delay">
         <picture>
           <img
-            src="/images/hero.png"
+            src="/images/hero-1.png"
             alt="TickTick Dashboard"
             width={800}
             height={500}
             className="max-w-[90%] lg:max-w-[85%] mx-auto h-[400px] lg:h-[500px] object-contain"
+            fetchPriority="high"
           />
         </picture>
       </div>

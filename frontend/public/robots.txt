@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /workspace/
+Disallow: /invite/
+Disallow: /reset-password
+Disallow: /google/oauth/callback
+
+Sitemap: /sitemap.xml

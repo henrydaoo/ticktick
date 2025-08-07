@@ -18,11 +18,15 @@ const HeroSection = () => {
         Modern Project Management with Real-time Collaboration
       </h1>
       <div className="w-full flex-grow lg:flex-1 flex items-start justify-center animate-slide-up-delay">
-        <img
-          src="/images/hero.png"
-          alt="TickTick Dashboard"
-          className="max-w-[90%] lg:max-w-[85%] mx-auto h-[400px] lg:h-[500px] object-contain"
-        />
+        <picture>
+          <img
+            src="/images/hero.png"
+            alt="TickTick Dashboard"
+            width={800}
+            height={500}
+            className="max-w-[90%] lg:max-w-[85%] mx-auto h-[400px] lg:h-[500px] object-contain"
+          />
+        </picture>
       </div>
     </div>
   );

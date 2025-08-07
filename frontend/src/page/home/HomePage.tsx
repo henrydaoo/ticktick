@@ -17,31 +17,21 @@ const HomePage = () => {
     >
       <div className="relative z-10 flex flex-col min-h-screen">
         <Suspense fallback={<div className="h-16" />}>
-          {" "}
-          {/* Header height placeholder */}
           <Header />
         </Suspense>
         <main className="flex-1">
           <Suspense fallback={<div className="h-32" />}>
-            {" "}
-            {/* HeroSection placeholder */}
             <HeroSection />
           </Suspense>
           <Suspense fallback={null}>
-            {" "}
-            {/* CTA is below the fold */}
             <CTA />
           </Suspense>
         </main>
         <Suspense fallback={null}>
-          {" "}
-          {/* Footer is below the fold */}
           <Footer />
         </Suspense>
       </div>
       <Suspense fallback={null}>
-        {" "}
-        {/* Background is decorative */}
         <Background />
       </Suspense>
     </div>

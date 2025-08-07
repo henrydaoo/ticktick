@@ -21,7 +21,7 @@ const HeroSection = () => {
         <img
           src="/images/hero.png"
           alt="TickTick Dashboard"
-          className="max-w-[90%] lg:max-w-[85%] mx-auto max-h-[400px] lg:max-h-[500px] w-auto h-auto object-contain"
+          className="max-w-[90%] lg:max-w-[85%] mx-auto h-[400px] lg:h-[500px] object-contain"
         />
       </div>
     </div>

@@ -23,7 +23,7 @@ const Header = () => {
           </Link>
           <Link
             to="/sign-up"
-            className="px-4 py-2 rounded-full bg-blue-600 text-white font-semibold text-xs lg:text-sm hover:bg-blue-700 transition-colors shadow"
+            className="px-4 py-2 rounded-full bg-blue-600 text-white font-semibold text-xs lg:text-sm hover:bg-blue-700 hover:scale-[102%] transition-all shadow"
           >
             Get Started Free
           </Link>

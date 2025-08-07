@@ -30,7 +30,7 @@ const Logo = (props: {
     <div
       className={`flex items-center justify-center sm:justify-start ${className}`}
     >
-      <Link to={url}>
+      <Link to={url} aria-label="Go to homepage">
         <div
           className={`flex ${sizeClasses[size]} size- items-center justify-center ${radiusClasses[size]} bg-primary text-primary-foreground`}
         >

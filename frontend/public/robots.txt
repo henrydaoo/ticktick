@@ -4,4 +4,4 @@ Disallow: /invite/
 Disallow: /reset-password
 Disallow: /google/oauth/callback
 
-Sitemap: /sitemap.xml
+Sitemap: https://ticktickspace.vercel.app/sitemap.xml

@@ -32,6 +32,7 @@ const Header = () => {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="lg:hidden text-gray-600 hover:text-blue-600 focus:outline-none p-1"
+          aria-label="Open navigation menu"
         >
           <svg
             className="h-5 w-5 lg:h-6 lg:w-6"

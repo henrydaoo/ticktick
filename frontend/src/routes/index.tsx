@@ -15,20 +15,14 @@ import {
 function AppRoutes() {
   return (
     <BrowserRouter>
-      <Suspense
-        fallback={
-          <div className="w-full h-screen flex items-center justify-center">
-            Loading...
-          </div>
-        }
-      >
+      <Suspense fallback={null}>
         <Routes>
           <Route element={<BaseLayout />}>
             {baseRoutePaths.map((route) => (
               <Route
                 key={route.path}
                 path={route.path}
-                element={route.element}
+                element={<Suspense fallback={null}>{route.element}</Suspense>}
               />
             ))}
           </Route>
@@ -39,7 +33,7 @@ function AppRoutes() {
                 <Route
                   key={route.path}
                   path={route.path}
-                  element={route.element}
+                  element={<Suspense fallback={null}>{route.element}</Suspense>}
                 />
               ))}
             </Route>
@@ -51,12 +45,19 @@ function AppRoutes() {
                 <Route
                   key={route.path}
                   path={route.path}
-                  element={route.element}
+                  element={<Suspense fallback={null}>{route.element}</Suspense>}
                 />
               ))}
             </Route>
           </Route>
-          <Route path="*" element={<NotFound />} />
+          <Route
+            path="*"
+            element={
+              <Suspense fallback={null}>
+                <NotFound />
+              </Suspense>
+            }
+          />
         </Routes>
       </Suspense>
     </BrowserRouter>

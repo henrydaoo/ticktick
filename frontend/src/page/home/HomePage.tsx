@@ -1,8 +1,9 @@
-import Background from "@/components/home/background";
-import CTA from "@/components/home/cta";
-import Header from "@/components/home/header";
-import HeroSection from "@/components/home/hero";
-import Footer from "@/components/home/footer";
+import { Suspense, lazy } from "react";
+const Background = lazy(() => import("@/components/home/background"));
+const CTA = lazy(() => import("@/components/home/cta"));
+const Header = lazy(() => import("@/components/home/header"));
+const HeroSection = lazy(() => import("@/components/home/hero"));
+const Footer = lazy(() => import("@/components/home/footer"));
 import { usePageVisibility } from "@/hooks/use-page-visibility";
 
 const HomePage = () => {
@@ -15,14 +16,34 @@ const HomePage = () => {
       }`}
     >
       <div className="relative z-10 flex flex-col min-h-screen">
-        <Header />
+        <Suspense fallback={<div className="h-16" />}>
+          {" "}
+          {/* Header height placeholder */}
+          <Header />
+        </Suspense>
         <main className="flex-1">
-          <HeroSection />
-          <CTA />
+          <Suspense fallback={<div className="h-32" />}>
+            {" "}
+            {/* HeroSection placeholder */}
+            <HeroSection />
+          </Suspense>
+          <Suspense fallback={null}>
+            {" "}
+            {/* CTA is below the fold */}
+            <CTA />
+          </Suspense>
         </main>
-        <Footer />
+        <Suspense fallback={null}>
+          {" "}
+          {/* Footer is below the fold */}
+          <Footer />
+        </Suspense>
       </div>
-      <Background />
+      <Suspense fallback={null}>
+        {" "}
+        {/* Background is decorative */}
+        <Background />
+      </Suspense>
     </div>
   );
 };

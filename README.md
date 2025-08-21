@@ -1,70 +1,29 @@
-﻿# TickTick - Project Management Platform
+# TickTick ⚡ - Project Management Platform
 
-A modern, collaborative project management platform with integrated real-time messaging. TickTick helps you organize workspaces, manage projects and tasks, collaborate with team members, and communicate seamlessly in one unified platform.
+**Overview**  
+A collaborative project management platform with real-time messaging and workspace organization. TickTick helps teams manage projects, tasks, and communication seamlessly in one unified platform.
 
-## Features
+**Tech Stack**  
+- **Frontend:** ReactJS, TypeScript, Vite, TailwindCSS, Tanstack Query, Stream Chat React SDK  
+- **Backend:** Node.js, ExpressJS, TypeScript, MongoDB, Mongoose  
+- **AI Assistant:** Botpress for in-app support  
+- **Authentication:** JWT, Google OAuth, role-based access control  
+- **Deployment:** Vercel (Frontend), Render (Backend)  
 
-- **Workspace Management**: Create and manage multiple workspaces for different teams or organizations
-- **Project Management**: Organize and track projects within workspaces with comprehensive project oversight
-- **Task Management**: Create, organize, and track tasks within projects with priorities and due dates
-- **Team Collaboration**: Invite team members and assign tasks to collaborate effectively
-- **Real-time Chat**: Integrated messaging with channel invites, personal notes, and direct messaging
-- **Botpress AI Chatbot**: AI agent that answers user questions based on platform knowledge with intelligent support
-- **Member Management**: Manage team roles and permissions within workspaces
-- **Secure Authentication**: 
-  - Email verification and password reset
-  - Google OAuth integration
-  - JWT session management
-- **Email System**: Professional email templates with SMTP integration
-- **Responsive Design**: Access your projects from any device with mobile-optimized interface
+**Key Features**  
+- Workspace, project, and task management with priorities and due dates  
+- Real-time messaging via integrated chat with channels, notes, and direct messages  
+- Botpress AI assistant for intelligent in-app support  
+- Role-based permissions with secure Google OAuth authentication  
+- Fully responsive across devices for desktop and mobile access  
+- Modular architecture for scalable feature development  
 
-## Technologies Used
+**My Role**  
+Sole Developer – built fullstack features, integrated authentication, messaging, and AI agent.
 
-- **Frontend**: React, TypeScript, Vite, Tailwind CSS, Tanstack Query
-- **Backend**: Node.js, Express, TypeScript, MongoDB, Mongoose
-- **Real-time Chat**: Stream Chat React SDK for messaging functionality
-- **AI Chatbot**: Botpress for user support
-- **Authentication**: JWT sessions, Google OAuth, email verification
-- **Email Service**: Nodemailer with SMTP for transactional emails
-- **Security**: Secure token generation, auto-expiring tokens, password hashing
-- **Deployment**: Vercel (Frontend), Render (Backend)
+**Links**  
+- [Live Demo](https://ticktickspace.vercel.app/)  
+- [GitHub Repo](https://github.com/henrydaoo/ticktick)  
 
-<img width="1264" height="995" alt="ticktick-thumbnail-2" src="https://github.com/user-attachments/assets/63e62663-ad9e-44da-aec2-8c10c911ae39" />
-
-
-
-## Getting Started
-
-### Installation
-
-1. Clone the repository
-```bash
-git clone https://github.com/henrydaoo/ticktick.git
-cd ticktick
-```
-
-2. Install dependencies for both frontend and backend
-```bash
-# Install backend dependencies
-cd backend
-npm install
-
-# Install frontend dependencies
-cd ../frontend
-npm install
-```
-
-3. Set up environment variables
-- Copy `.env.example` to `.env` in both frontend and backend directories
-- Configure MongoDB connection and email SMTP settings
-
-4. Start the development servers
-```bash
-# Start backend (from backend directory)
-npm run dev
-
-# Start frontend (from frontend directory)
-npm run dev
-```
-
-
+**Screenshots**  
+![TickTick Screenshot 1](https://ik.imagekit.io/henrydaoo/portfolio/projects/ticktick-1-v2.png?updatedAt=1754308735484)  

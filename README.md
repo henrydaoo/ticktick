@@ -25,5 +25,6 @@ Sole Developer – built fullstack features, integrated authentication, messagin
 - [Live Demo](https://ticktickspace.vercel.app/)  
 - [GitHub Repo](https://github.com/henrydaoo/ticktick)  
 
+
 **Screenshots**  
 ![TickTick Screenshot 1](https://ik.imagekit.io/henrydaoo/portfolio/projects/ticktick-1-v2.png?updatedAt=1754308735484)  
